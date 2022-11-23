@@ -1,29 +1,41 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+require("dotenv").config();
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
+const app = express();
 const bodyParser = require("body-parser");
 
-dotenv.config();
-const app = express();
+const userRoutes = require("./routes/userRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+
 const PORT = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.end("Hello World!");
+app.use("/orders", (req, res, next) => {
+  const token = req.headers.auth;
+  jwt.verify(token, process.env.SECRET, function (err, decoded) {
+    if (err) {
+      res.status(400).json("Invalid Request");
+    } else {
+      req.body.data = decoded._id;
+      next();
+    }
+  });
 });
 
+app.use("/", userRoutes);
+app.use("/orders", orderRoutes);
+
 mongoose
-  .connect(process.env.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  .connect(process.env.mongoURI)
+  .then((res) => {
+    console.log("Database connected");
+    app.listen(PORT, () =>
+      console.log(`server Started http://localhost:${process.env.PORT}`)
+    );
   })
-  .then(() => {
-    console.log(`DB is connected`);
-    app.listen(PORT, () => {
-      console.log(`Server is up and running at http://localhost:${PORT}`);
-    });
-  });
+  .catch((e) => console.log(e));
