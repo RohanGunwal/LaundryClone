@@ -6,14 +6,7 @@ const orderSchema = mongoose.Schema({
     status: { type: String, required: true },
     price: { Type: Number, required: true },
     order_details: Array,
-    // {
-    //     product: { type: String },
-    //     Quantity: Number,
-    //     washType: {
-    //         wash_name: Array
-    //     },
-    //     total_price: Number
-    // },
+
     user: { type: Schema.Types.ObjectId, ref: "User" }
 })
 
