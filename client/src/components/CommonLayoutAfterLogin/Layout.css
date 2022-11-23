@@ -1,0 +1,11 @@
+.sidebar{
+    display:flex;
+    flex-direction: row;
+}
+
+.sidebarsec{
+   float:left
+}
+.othersec{
+    width:100%;
+}
