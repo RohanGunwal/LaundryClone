@@ -8,7 +8,8 @@ router.post("/login",async(req,res)=>{
     try {
        const {userName,password} = req.body
 
-       const user = await User.findOne({userName})
+       const user = await User.findOne({$or:[{email:userName},{phone:userName}]})
+       console.log(user)
        if(!user){
             return res.status(403).json({
                 status:"error",

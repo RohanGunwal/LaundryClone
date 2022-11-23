@@ -24,7 +24,7 @@ router.post("/",body("userName").isAlpha(),body("email").isEmail(),body("passwor
             }
             const hash = await bcrypt.hash(password,10)
             // console.log(hash,"password")
-            
+            const date = Date.toString()
             const user = await User.create({
                 userName,
                 email,
@@ -36,6 +36,7 @@ router.post("/",body("userName").isAlpha(),body("email").isEmail(),body("passwor
                     area:address.area,
                     pincode:address.pincode
                 }
+                
 
             })
             

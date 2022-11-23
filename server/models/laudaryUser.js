@@ -11,7 +11,7 @@ const userSchema = mongoose.Schema({
         area: { type: String, required:true },
         pincode: { type: String, required:true }
     },
-    date:{type:Date,default:Date.now().toString().split("T")[0]}
+    date:{type:Date,default:Date.now()}
 
 })
 
