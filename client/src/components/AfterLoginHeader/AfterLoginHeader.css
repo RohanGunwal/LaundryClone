@@ -1,0 +1,142 @@
+.nav-container {
+    margin-left: 0px;
+    margin-top:0px;
+    height: 80px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 48px #0000000F;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    /* position: -webkit-sticky; */
+    position: sticky;
+   
+}
+
+#header {
+   margin-top: 27px;
+   margin-left: 45px;
+   /* padding: 1.3em 2em; */
+   height:27px;
+   text-align: left;
+font-family: 'Avenir','Montserrat';
+font-size: 20px;
+font-weight: 900;
+letter-spacing: 1.8px;
+color: #5861AE;
+text-transform: uppercase;
+opacity: 1;
+    
+}
+
+.nav-links {
+    display: inline-flex;
+    float: right;
+    justify-content: space-evenly;
+    width: 20em;
+    color: #5861AE;
+}
+
+.nav-static{
+    height: 100%;
+    margin-top:34px;
+    height: 19px;
+    text-align: center;
+    color: #565657;
+    text-transform: capitalize;
+    opacity: 1;  
+    font-family: 'Avenir','Montserrat';
+    font-size: 14px;
+    letter-spacing: 1.05px;
+    list-style-type: none;
+    justify-content: space-evenly; 
+     
+}
+
+.nav-static1{
+    display: block;
+    height: 100%;
+    width:214px;
+    color: #FFFFFF;
+  
+    /* justify-content: center;  */
+    background: #5861AE 0% 0% no-repeat padding-box;
+    cursor: pointer;
+}
+
+
+
+.text-align{
+    display: inline-block;
+    margin-top:20px;
+    text-align: center;
+    justify-content: center; 
+    margin-top: 28px;
+    font-family: 'Avenir','Montserrat';
+    font-size:16px;
+    font-weight: medium;
+    text-transform: capitalize;
+    opacity: 1;  
+    letter-spacing: 1.05px;
+}
+
+
+
+
+.nav-link {
+    height: 100%;
+    color: red;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #2f2e2e0f;
+    text-align: center;
+    text-align: center;
+    font: normal normal medium 16px/22px Avenir;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+}
+
+
+#user-name{
+    height:80px;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+ #hide{
+       display: none;
+}
+
+.nav-static1:hover + #hide{
+    display: flex;
+    flex-direction: row;
+    color: red;
+   
+}
+
+
+
+
+
+
+
+
+#userName {
+    background-color: #5861AE;
+    color: #FFFFFF;
+    padding: 1.5em;
+    font-weight: 600;
+    font-size: large;
+}
+
+#logOut {
+    color: rgb(214, 118, 101);
+    padding: 1.5em;
+    font-weight: 600;
+    font-size: large;
+}
+
+#logOut:hover {
+    background-color: wheat;
+}
