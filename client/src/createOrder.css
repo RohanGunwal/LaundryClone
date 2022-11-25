@@ -1,0 +1,122 @@
+.order-header{
+    /* display: flex;
+    justify-content: space-between; */
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    background-color: black;
+    padding: 0.5rem;
+    color:white;
+    font-size: small;
+    
+}
+.orderType-container{
+    border-bottom:1px solid #E0E0E0;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding: 0.5rem;
+    
+   
+    /* display: flex;
+    justify-content: space-between;
+   
+    padding: 1rem; */
+    
+}
+.wash-types{
+    padding: 0.5rem;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+.priceAndReset{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+.priceAndReset .individualSum{
+    font: normal normal 600 14px/20px Open Sans;
+    letter-spacing: 0.43px;
+    color: #221919;
+    vertical-align: middle;
+}
+.priceAndReset .totalAmount{
+    letter-spacing: 0.58px;
+    color: #5861AE;
+    font: normal normal bold 20px/27px Open Sans;
+    vertical-align: middle;
+    padding: 0 0.5rem;
+}
+.priceAndReset button{
+    background-color: #FEFFFF;
+    border: 1px solid #5861AE;
+    color: #5861AE;
+    font-size: small;
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+
+}
+.product-container div{
+    display: inline-block;
+    vertical-align: middle;
+}
+.product-container p{
+    margin: 0;
+    margin-left: 0.5rem;
+    font-size: small;
+}
+.image-container{
+    width:60px;
+    height: 60px;
+    vertical-align: middle;
+}
+.image-container img{
+    width: 100%;
+    height: 100%;
+}
+
+.input-container{
+    box-sizing: border-box;
+    width:20px;
+   vertical-align: middle;
+}
+.input-container input{
+   margin-top:1rem;
+    vertical-align: middle;
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    outline: none;
+    border: 0.5px solid gray;
+}
+.input-container input:hover{
+    border: 0.5px solid blue;
+}
+.btn-container{
+    float: right;
+}
+.btn-container button{
+    margin:1rem;
+    outline: none;
+    padding: 0.1rem 1rem;
+   border-radius: 4px;
+
+}
+.btn-container .cancel-btn{
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
+
+    
+}
+.btn-container .proceed-btn{
+    background-color: #5861AE;
+    color: #FEFFFF;
+    border:none;
+}
+.createOrder-container{
+    border: 1px solid #E0E0E0;
+}
