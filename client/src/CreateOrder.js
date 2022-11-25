@@ -207,7 +207,7 @@ const getChemicalWash = (e,itemId)=>{
         setOrders(new Map())
         setPrice(new Map())
     }
-  
+    const [bg,setBg] = useState("")
     return <div>
         <div className="order-header">
             <div>Product Types</div>
@@ -229,13 +229,21 @@ const getChemicalWash = (e,itemId)=>{
                         </div> 
                     </div>
                     <div className="input-container">
-                        <input  onChange={setQuality} name={items.clothType} id={items.id} value={price.get(items.clothType) ? price.get(items.clothType) : ""} />
+                        <input  onChange={setQuality} name={items.clothType} id={items.id} value={orders.get(items.id) ? price.get(items.clothType) : ""} />
                     </div>
                     <div className="wash-types">
-                        <div ><img src="/machine.png" alt="washing" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getMachineWash(e,items.id)} /></div>
-                        <div> <img src="/iron.png" alt="iron" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getIron(e,items.id)}/></div>
-                        <div><img src="/dry.png" alt="Dry" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getdry(e,items.id)}/></div>
-                        <div> <img src="/bleach.png" alt="chemical wash" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getChemicalWash(e,items.id)}/></div>
+                        <div >
+                            <img src="/images/machine.png" alt="washing" id={`${items.clothType}=${items.cost}`}  onClick={(e)=>getMachineWash(e,items.id)} />
+                        </div>
+                        <div> 
+                            <img src="/images/iron.png" alt="iron" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getIron(e,items.id)}/>
+                        </div>
+                        <div>
+                            <img src="/images/dry.png" alt="Dry" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getdry(e,items.id)}/>
+                        </div>
+                        <div> 
+                            <img src="/images/bleach.png" alt="chemical wash" id={`${items.clothType}=${items.cost}`} onClick={(e)=>getChemicalWash(e,items.id)}/>
+                        </div>
     
                     </div>
                     <div className="priceAndReset">
