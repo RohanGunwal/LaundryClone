@@ -2,6 +2,7 @@ import React from 'react'
 import './AfterLoginHeader.css';
 
 const AfterLoginHeader = () => {
+  const username = localStorage.getItem("username");
   return (
     <nav className="nav-container">
     <div id="header">laundry</div>
@@ -11,7 +12,7 @@ const AfterLoginHeader = () => {
                 <li>Career</li>
      </ul>
      <div className="nav-static1">
-        <span className="text-align">UserName</span>
+        <span className="text-align">{username} || UserName</span>
      </div >
 
      <div className="nav-static1"  id="hide">Logout </div>
