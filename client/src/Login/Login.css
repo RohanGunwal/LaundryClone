@@ -1,0 +1,10 @@
+
+.login {
+    display: flex;
+    height: 81vh;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  #error{
+    color : red;
+  }
