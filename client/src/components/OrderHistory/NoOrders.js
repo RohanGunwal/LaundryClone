@@ -10,8 +10,8 @@ const NoOrders = () => {
 const [alert, setAlert] = useState(false);
   const [orders, setOrders] = useState([]);
   const [orderSummary, setOrderSummary] = useState(false);
-  useEffect(()=> {
-     fetch("http://localhost:4000/orderList").then((res)=>res.json()).then((data)=> {
+  useEffect(async ()=> {
+    await fetch("http://localhost:4000/orderList").then((res)=>res.json()).then((data)=> {
     setOrders(data.reverse());
     }).catch((err)=> {
         if(err) {
