@@ -1,0 +1,34 @@
+.container {
+    background-color: blueviolet;
+    text-align: justify;
+font-style: normal;
+margin: 10px 10px 10px 400px ;
+padding: 10px 10px 10px 30px ;
+font-family: 'Courier New', Courier, monospace;
+
+}
+.small-container {
+ 
+    text-align: justify;
+font-style: normal;
+margin: 10px 10px 10px 400px ;
+padding: 10px 10px 10px 30px ;
+font-family: 'Courier New', Courier, monospace;
+
+}
+th {
+    margin-top: 0px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    padding-left: 53px;
+    padding-right: 1px;
+}
+.total {
+    background-color: blueviolet;
+    text-align: left;
+font-style: normal;
+margin: 10px 10px 10px 10px ;
+padding: 10px 10px 10px 30px ;
+font-family: 'Courier New', Courier, monospace;
+}
