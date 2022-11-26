@@ -12,7 +12,14 @@ export default function SingIn(){
         let verifyEmail = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
     
         if(verifyEmail.test(userName) || (verifyNumber.test(userName) && userName.length === 10)){
-        setError(false)
+            setError(false)
+            axios
+                .post("/login", {
+                    userEmailOrPhone: email,
+                    password: password,
+                })
+                .then((res) => localStorage.setItem("token",res.data.token))
+                .catch((err) => setError(true));
         }else{
             setError(true)
         }
