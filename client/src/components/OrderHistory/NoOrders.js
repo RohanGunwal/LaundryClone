@@ -9,6 +9,7 @@ const NoOrders = () => {
 //   const token = localStorage.getItem('token');
 const [alert, setAlert] = useState(false);
   const [orders, setOrders] = useState([]);
+  const [orderSummary, setOrderSummary] = useState(false);
   useEffect(()=> {
      fetch("http://localhost:4000/orderList").then((res)=>res.json()).then((data)=> {
     setOrders(data.reverse());
@@ -116,7 +117,7 @@ const [alert, setAlert] = useState(false);
                 <div className='socbox'><img src={'/images/search.svg'} alt="search" className="soimglogo" style={{ color: "#1D377E" }} /></div>
             </div>
         </div>
-        {sizes ===0 ? <NoOrders /> :<OrderHeader data = {orders} alertState={setAlert} presentState={alert} />}
+        {sizes ===0 ? <NoOrders /> :<OrderHeader data = {orders} alertState={setAlert} presentState={alert} orderSummary={orderSummary} setOrderSummary={setOrderSummary} />}
        
         
          </>

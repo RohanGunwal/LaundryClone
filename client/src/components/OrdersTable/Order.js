@@ -2,28 +2,38 @@ import React, {useState} from 'react'
 import Table from 'react-bootstrap/Table';
 import {BsEye} from 'react-icons/bs';
 import Alert from '../OrderHistory/Alert';
+import Summary  from '../Summary/Summary';
 
 
 
-const Order = ({data, alertState,presentState}) => {
+const Order = ({data, alertState,presentState, orderSummary, setOrderSummary}) => {
     const [orderID, setOrderID] = useState();
+    const [orderData, setOrderData] = useState();
     const [isOpen, setIsOpen] = useState(false);
+    const [clickOrder,setClickOrder] = useState();
  
 
   
     function CancelOrderButton({alertState, presentState, data}){
         return <div style={{color:"red", cursor:"pointer"}}   onClick={() => {
-            alertState(!presentState);
+           setOrderSummary(!orderSummary);
+            // alertState(!presentState);
             setOrderID(data.orderId);
-            setIsOpen(!isOpen);
+            setOrderData(data);
+            // setIsOpen(!isOpen);
+            setClickOrder("cancel");
           }}>Cancel Order</div>
       }
 
-     
+      // const handleView = ({order}) => {
+      //   setOrderSummary(!orderSummary);
+       
+      // };
     
       
 
   return (
+    <>
     <div>
         <Table className ='striped bordered hover table-style' >
         <thead className='table-header-style' style={{verticalAlign:"middle"}}>
@@ -55,24 +65,50 @@ const Order = ({data, alertState,presentState}) => {
 <td className='row-price'>{order.price} Rs</td>
 <td>{order.status}</td>
 
-<td>{order.status ==="Ready to pickup" ? <CancelOrderButton  alertState={alertState} presentState={presentState} data={order}/> : "" }</td>
+<td>{order.status ==="Ready to pickup" ? <CancelOrderButton toggleState={setOrderSummary}
+            currentState={orderSummary} alertState={alertState} presentState={presentState} data={order} clickOrder = {clickOrder}/> : "" }</td>
 
-<td><BsEye style={{ backgroundColor: "white", cursor: "pointer" }} /></td>
+<td><BsEye style={{ backgroundColor: "white", cursor: "pointer" }} onClick={() => {
+            setOrderSummary(!orderSummary);
+            setOrderData(order);
+            setClickOrder("view");
+           
+          }} /></td>
 </tr>
   ))} 
      
         </tbody>
         </Table>
+        </div>
+        <div>
+        {orderSummary && (
+          <Summary
+            toggleState={setOrderSummary}
+            currentState={orderSummary}
+            orderID = {orderID}
+        
+            orderData={orderData}
+            presentState={presentState}
+            alertState={alertState}
+            clickOrder = {clickOrder}
+           
+          />
+        )} 
+        </div>
+        <div>
         {presentState && (
     
           <Alert
             alertState={alertState}
             presentState={presentState}
             orderid={orderID}
+           
           />
           
         )}
         </div>
+       
+        </>
  )
 
 }

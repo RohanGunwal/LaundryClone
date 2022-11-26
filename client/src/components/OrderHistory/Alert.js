@@ -6,6 +6,8 @@ import './Alert.css';
 
 
 const Alert = ({ alertState, presentState, orderid }) => {
+
+  console.log("OrderID" , orderid);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -63,7 +65,7 @@ const Alert = ({ alertState, presentState, orderid }) => {
    }
   return (
     <div className="alertcontainer">
-<Modal show={handleShow} onHide={handleClose}  size="lg"  className='modal-dialog' >
+<Modal show={handleShow} onHide={handleClose}  size="sm"  ClassName='modal-dialog'>
   <AlertComponent />
   </Modal>
         {/* <div className="dialogbox">
