@@ -6,10 +6,11 @@ import Modal from 'react-bootstrap/Modal';
 import './Summary.css';
 import { Collapse } from 'bootstrap';
 
-const Summary = ({currentState,toggleState,orderData, orderID, alertState,presentState, clickOrder}) => {
+const Summary = ({currentState,toggleState,orderData, orderID, alertState,presentState, clickOrder, order_id}) => {
     console.log(orderData);
     const [show, setShow] = useState(false);
     const [orderID1, setOrderID] = useState();
+    const [orderID2, setOrderID1] = useState();
   
 
     const handleClose = () => setShow(false);
@@ -125,6 +126,7 @@ const Summary = ({currentState,toggleState,orderData, orderID, alertState,presen
             toggleState(!currentState);
             alertState(!presentState);
             setOrderID(orderID);
+            setOrderID1(order_id);
          
            
           }}

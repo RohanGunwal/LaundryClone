@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import {BsEye} from 'react-icons/bs';
 import Alert from '../OrderHistory/Alert';
@@ -11,6 +12,7 @@ const Order = ({data, alertState,presentState, orderSummary, setOrderSummary}) =
     const [orderData, setOrderData] = useState();
     const [isOpen, setIsOpen] = useState(false);
     const [clickOrder,setClickOrder] = useState();
+    const [order_id, setOrderID1] = useState();
  
 
   
@@ -22,6 +24,7 @@ const Order = ({data, alertState,presentState, orderSummary, setOrderSummary}) =
             setOrderData(data);
             // setIsOpen(!isOpen);
             setClickOrder("cancel");
+            setOrderID1(data._id);
           }}>Cancel Order</div>
       }
 
@@ -66,12 +69,13 @@ const Order = ({data, alertState,presentState, orderSummary, setOrderSummary}) =
 <td>{order.status}</td>
 
 <td>{order.status ==="Ready to pickup" ? <CancelOrderButton toggleState={setOrderSummary}
-            currentState={orderSummary} alertState={alertState} presentState={presentState} data={order} clickOrder = {clickOrder}/> : "" }</td>
+            currentState={orderSummary} alertState={alertState} presentState={presentState} data={order} clickOrder = {clickOrder} order_id={order_id}/> : "" }</td>
 
 <td><BsEye style={{ backgroundColor: "white", cursor: "pointer" }} onClick={() => {
             setOrderSummary(!orderSummary);
             setOrderData(order);
             setClickOrder("view");
+            setOrderID1(data._id);
            
           }} /></td>
 </tr>
@@ -91,6 +95,8 @@ const Order = ({data, alertState,presentState, orderSummary, setOrderSummary}) =
             presentState={presentState}
             alertState={alertState}
             clickOrder = {clickOrder}
+            order_id={order_id}
+
            
           />
         )} 
@@ -102,6 +108,8 @@ const Order = ({data, alertState,presentState, orderSummary, setOrderSummary}) =
             alertState={alertState}
             presentState={presentState}
             orderid={orderID}
+            orderData = {orderData}
+            order_id={order_id}
            
           />
           

@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import OrderHeader from '../OrdersTable/Order';
+import axios from 'axios';
 // import Table from 'react-bootstrap/Table';
 // import {BsEye} from 'react-icons/bs';
 
@@ -10,14 +11,32 @@ const NoOrders = () => {
 const [alert, setAlert] = useState(false);
   const [orders, setOrders] = useState([]);
   const [orderSummary, setOrderSummary] = useState(false);
-  useEffect(async ()=> {
-    await fetch("http://localhost:4000/orderList").then((res)=>res.json()).then((data)=> {
-    setOrders(data.reverse());
-    }).catch((err)=> {
-        if(err) {
-            console.log(err)
+  useEffect(()=> {
+   
+    const getOrdersData = async () => {
+        try{
+            const response = await axios.get('http://localhost:4000/orderList');
+            response.data.reverse()
+            setOrders(response.data);
         }
-    })
+        catch(err){
+            if(err) {
+                console.log(err)
+            }
+        }
+      
+        
+    };
+    getOrdersData();
+}, []);
+//   useEffect(async ()=> {
+//     await fetch("http://localhost:4000/orderList").then((res)=>res.json()).then((data)=> {
+//     setOrders(data.reverse());
+//     }).catch((err)=> {
+//         if(err) {
+//             console.log(err)
+//         }
+//     })
 
 //     // fetch("https://my-instaclone-server.herokuapp.com/").then((res)=>res.json()).then((data)=> {
         
@@ -44,11 +63,9 @@ const [alert, setAlert] = useState(false);
 //     //     // console.log(response.data)
 //     // };
 //     // getData();
-}, []);
+// }, []);
 //var count = Object.keys(myObject).length;
    const sizes = orders.length;
-   
-
     function NoOrders(){
         return  <div className="newcreatebotton">
         <p className='newpara1'>No Orders available</p>
